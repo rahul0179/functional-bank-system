@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-16">
+            <span class="font-semibold text-purple-800 drop-shadow-lg">Baper Bank</span>
+        </h1>
+    </header>
+    <main class=" w-3/4 mx-auto">
+        <section class="mt-8">
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-blue-400 p-8 rounded ">
+                    <h3 class="text-3xl text-center ">Deposit</h3>
+                    <h4 class=" text-4xl text-center text-white">$<span id="deposit-total">00</ span>
+                    </h4>
+
+                </div>
+                <div class="bg-red-400 p-8 rounded ">
+                    <h3 class="text-3xl text-center ">Withdraw</h3>
+                    <h4 class="text-4xl text-center text-white">$<span id="withdrawCash">00</span></h4>
+
+                </div>
+                <div class="bg-green-400 p-8 rounded ">
+                    <h3 class="text-3xl text-center ">Balance</h3>
+                    <h4 class="text-4xl text-center text-white">$<span id="blance-total">1200</span></h4>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- deposit & withdraw -->
+        <section>
+            <div class="grid grid-cols-2 gap-6 mt-16">
+                <div class="bg-fuchsia-500 py-6 rounded drop-shadow-lg  ">
+                    <h3 class="font-medium text-center text-black-600 mb-1 text-2xl">Please Deposit</h3>
+                    <form action="" class="mt-15 grid justify-items-center ">
+                        <input class=" border-2 border-gray-400 rounded w-2/4 px-2" type="text"
+                            placeholder="$amount you want to deposit" name="" id="deposit-id">
+                    </form>
+                    <div class="flex justify-center">
+                        <div>
+                            <button id="deposit-submit"
+                                class="   bg-yellow-600 rounded px-4 py-2 text-white font-semibold mt-4 w-26 ">
+                                Deposit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-500 py-6 rounded drop-shadow-lg">
+                    <h3 class="font-medium text-center text-black-600 mb-1 text-2xl">Please Withdraw</h3>
+                    <form action="" class="mt-15 grid justify-items-center ">
+                        <input class=" border-2 border-gray-400 rounded w-2/4 px-2" type="text"
+                            placeholder="$amount you want to withdraw" name="" id="withdraw-id">
+                    </form>
+                    <div class="flex justify-center">
+                        <div>
+                            <button id="withdraw-submit"
+                                class="   bg-yellow-600 rounded px-4 py-2 text-white font-semibold mt-4 w-26 ">
+                                Withdraw
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="js/banking.js"></script>
+
+</body>
+
+</html>
