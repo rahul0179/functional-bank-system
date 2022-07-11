@@ -20,19 +20,22 @@ function update(id, input) {
 
 }
 
-function depositBlance(id, amount) {
-    const blance = document.getElementById(id);
+function blance(amount, isAdd) {
+    const blance = document.getElementById('blance-total');
     const blanceText = blance.innerText;
-    const update = parseFloat(blanceText) + amount;
-    blance.innerText = update;
+    if (isAdd == true) {
+        const update = parseFloat(blanceText) + amount;
+        blance.innerText = update;
+
+    }
+    else {
+        const update = parseFloat(blanceText) - amount;
+        blance.innerText = update;
+        return blance;
+
+    }
     return blance;
-}
-function withdrawBlance(id, amount) {
-    const blance = document.getElementById(id);
-    const blanceText = blance.innerText;
-    const update = parseFloat(blanceText) - amount;
-    blance.innerText = update;
-    return blance;
+
 }
 
 
@@ -45,7 +48,7 @@ document.getElementById('deposit-submit').addEventListener('click', function () 
 
     const updateDeposit = update("deposit-total", depositInput);
 
-    const blanceUpdate = depositBlance('blance-total', depositInput);
+    const blanceUpdate = blance(depositInput, true);
 
 
 
@@ -59,7 +62,7 @@ document.getElementById('withdraw-submit').addEventListener('click', function ()
 
     const updateWithdraw = update('withdrawCash', withdrawInput);
 
-    const blanceUpdate = withdrawBlance('blance-total', withdrawInput);
+    const blanceUpdate = blance(withdrawInput, false);
 
 
 
