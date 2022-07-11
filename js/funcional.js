@@ -1,4 +1,5 @@
 function getInput(id) {
+
     const inputId = document.getElementById(id);
     const inputIdText = inputId.value;
     const input = parseFloat(inputIdText);
@@ -19,17 +20,26 @@ function update(id, input) {
     return inputId;
 
 }
+function getCurrentBlance() {
+    const blance = document.getElementById('blance-total');
+    const blanceText = blance.innerText;
+    const previousBlance = parseFloat(blanceText);
+    return previousBlance;
+
+}
 
 function blance(amount, isAdd) {
     const blance = document.getElementById('blance-total');
-    const blanceText = blance.innerText;
+    /* const blanceText = blance.innerText;
+    const previousBlance = parseFloat(blanceText); */
+    const previousBlance = getCurrentBlance();
     if (isAdd == true) {
-        const update = parseFloat(blanceText) + amount;
+        const update = previousBlance + amount;
         blance.innerText = update;
 
     }
     else {
-        const update = parseFloat(blanceText) - amount;
+        const update = previousBlance - amount;
         blance.innerText = update;
         return blance;
 
@@ -45,10 +55,13 @@ function blance(amount, isAdd) {
 document.getElementById('deposit-submit').addEventListener('click', function () {
     //   set input 
     const depositInput = getInput("deposit-id");
+    if (depositInput > 0) {
+        const updateDeposit = update("deposit-total", depositInput);
 
-    const updateDeposit = update("deposit-total", depositInput);
+        const blanceUpdate = blance(depositInput, true);
+    }
 
-    const blanceUpdate = blance(depositInput, true);
+
 
 
 
@@ -59,11 +72,19 @@ document.getElementById('deposit-submit').addEventListener('click', function () 
 document.getElementById('withdraw-submit').addEventListener('click', function () {
     //   set input 
     const withdrawInput = getInput('withdraw-id');
+    const currentBlance = getCurrentBlance();
 
-    const updateWithdraw = update('withdrawCash', withdrawInput);
+    if (withdrawInput > 0 && withdrawInput < currentBlance) {
+        const updateWithdraw = update('withdrawCash', withdrawInput);
 
-    const blanceUpdate = blance(withdrawInput, false);
+        const blanceUpdate = blance(withdrawInput, false);
+    }
+    if (withdrawInput > currentBlance) {
+        console.log("tou can not withdraw !!!!!!!!!!")
+    }
 
 
 
 })
+
+
