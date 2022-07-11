@@ -24,7 +24,7 @@ function blanceCheck(id, depositAmount) {
     const previousBlance = blanceTotal;
     const newblance = previousBlance + depositAmount;
     blance.innerText = newblance;
-
+    return blance;
 
 
 
@@ -36,8 +36,7 @@ function withdrawblanceCheck(id, depositAmount) {
     const previousBlance = blanceTotal;
     const newblance = previousBlance - depositAmount;
     blance.innerText = newblance;
-
-
+    return blance;
 
 
 }
